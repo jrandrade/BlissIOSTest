@@ -7,7 +7,19 @@
 //
 
 import UIKit
+import SwiftyJSON
 
-class Choice: NSObject {
-
+class Choice: NSObject, EntityProtocol{
+    var choice: String? = nil
+    var votes: Int? = nil
+    
+    required init?(json: JSON) {
+        if let choice = json["choice"].string {
+            self.choice = choice
+        }
+        
+        if let votes = json["votes"].int {
+            self.votes = votes
+        }
+    }
 }
