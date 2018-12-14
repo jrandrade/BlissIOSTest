@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ServerHealthManager: ServerHealthManagerProtocol{
+class ServerHealthManager: NSObject, ServerHealthManagerProtocol{
     
     let service = ServerHealthHttpService()
     

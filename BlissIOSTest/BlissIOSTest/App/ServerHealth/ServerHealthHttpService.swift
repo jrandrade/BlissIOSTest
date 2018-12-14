@@ -8,9 +8,9 @@
 
 import UIKit
 import SwiftyJSON
-class ServerHealthHttpService: ServerHealthHttpServiceProtocol {
+class ServerHealthHttpService: NSObject, ServerHealthHttpServiceProtocol {
     let service = AlamofireHttpService.sharedInstance
-    init() { }
+
     
     func getServerHealth(result: @escaping (Bool?, Error?) -> Void) {
         let url = Config.api.url + Config.endpoint.serverHealth

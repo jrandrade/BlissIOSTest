@@ -16,5 +16,14 @@ struct Config {
     struct endpoint {
         static let serverHealth = "/health"
         static let questionList = "/questions"
-    } 
+    }
+    
+    struct storyboard {
+        static let main = "Main"
+        static let question = "Question"
+    }
+    
+    struct request {
+        static let limit = 10
+    }
 }

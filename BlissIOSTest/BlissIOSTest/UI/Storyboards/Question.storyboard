@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-1193" y="66"/>
         </scene>
-        <!--View Controller-->
+        <!--Question List View Controller-->
         <scene sceneID="e13-gC-0oC">
             <objects>
-                <viewController id="Yc8-jp-tQB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Yc8-jp-tQB" customClass="QuestionListViewController" customModule="BlissIOSTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5E2-41-QLn"/>
                         <viewControllerLayoutGuide type="bottom" id="p2x-Jd-t4m"/>
@@ -58,6 +58,10 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="j7C-BK-RCk"/>
+                    <connections>
+                        <outlet property="bottomConstraint" destination="ODg-tH-xdh" id="JNq-Rn-VeB"/>
+                        <outlet property="tableView" destination="DMX-ff-4i0" id="G09-qn-d6C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLa-HE-gQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

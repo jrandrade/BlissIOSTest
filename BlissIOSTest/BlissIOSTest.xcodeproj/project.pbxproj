@@ -14,6 +14,13 @@
 		8B3703D021C4282E0049E00E /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3703CF21C4282E0049E00E /* BasicViewController.swift */; };
 		8B3703D221C4318A0049E00E /* ServerHealthManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3703D121C4318A0049E00E /* ServerHealthManagerProtocol.swift */; };
 		8B3703D421C431F80049E00E /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3703D321C431F80049E00E /* HttpResponse.swift */; };
+		8B392B8B21C4638D00890616 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B392B8A21C4638D00890616 /* Localizable.strings */; };
+		8B392B8D21C4656700890616 /* QuestionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B392B8C21C4656700890616 /* QuestionManagerProtocol.swift */; };
+		8B392B8F21C466DF00890616 /* QuestionHttpServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B392B8E21C466DF00890616 /* QuestionHttpServiceProtocol.swift */; };
+		8B392B9221C4672F00890616 /* QuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B392B9121C4672F00890616 /* QuestionManager.swift */; };
+		8B392B9421C467CD00890616 /* QuestionHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B392B9321C467CD00890616 /* QuestionHttpService.swift */; };
+		8B392B9721C468C800890616 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B392B9621C468C800890616 /* Url.swift */; };
+		8B392B9B21C46AE400890616 /* QuestionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B392B9A21C46AE400890616 /* QuestionListViewController.swift */; };
 		8B4B5EBA21C32095004C162D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B5EB921C32095004C162D /* AppDelegate.swift */; };
 		8B4B5EC121C32095004C162D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B4B5EC021C32095004C162D /* Assets.xcassets */; };
 		8B4B5EC421C32095004C162D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4B5EC221C32095004C162D /* LaunchScreen.storyboard */; };
@@ -40,6 +47,13 @@
 		8B3703CF21C4282E0049E00E /* BasicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		8B3703D121C4318A0049E00E /* ServerHealthManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerHealthManagerProtocol.swift; sourceTree = "<group>"; };
 		8B3703D321C431F80049E00E /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
+		8B392B8A21C4638D00890616 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		8B392B8C21C4656700890616 /* QuestionManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionManagerProtocol.swift; sourceTree = "<group>"; };
+		8B392B8E21C466DF00890616 /* QuestionHttpServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionHttpServiceProtocol.swift; sourceTree = "<group>"; };
+		8B392B9121C4672F00890616 /* QuestionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionManager.swift; sourceTree = "<group>"; };
+		8B392B9321C467CD00890616 /* QuestionHttpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionHttpService.swift; sourceTree = "<group>"; };
+		8B392B9621C468C800890616 /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
+		8B392B9A21C46AE400890616 /* QuestionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionListViewController.swift; path = Controllers/Question/QuestionListViewController.swift; sourceTree = "<group>"; };
 		8B4B5EB621C32095004C162D /* BlissIOSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlissIOSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B4B5EB921C32095004C162D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B4B5EC021C32095004C162D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,7 +67,7 @@
 		8BD9EC7A21C4420800C40D1B /* ServerHealthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerHealthManager.swift; sourceTree = "<group>"; };
 		8BD9EC7D21C442A500C40D1B /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8BD9EC7F21C4470800C40D1B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8BD9EC8121C4475F00C40D1B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8BD9EC8121C4475F00C40D1B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../../MainViewController.swift; sourceTree = "<group>"; };
 		8BD9EC8321C455AA00C40D1B /* Question.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Question.storyboard; sourceTree = "<group>"; };
 		8BD9EC8621C45A0D00C40D1B /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		8BD9EC8721C45A0D00C40D1B /* ListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
@@ -94,6 +108,7 @@
 		8B3703BE21C3DE030049E00E /* App */ = {
 			isa = PBXGroup;
 			children = (
+				8B392B9021C4670700890616 /* Question */,
 				8BD9EC7721C441A400C40D1B /* ServerHealth */,
 			);
 			path = App;
@@ -120,6 +135,7 @@
 		8B3703C121C3DE1B0049E00E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8B392B9521C468AD00890616 /* Extensions */,
 				8BD9EC7C21C4427D00C40D1B /* Config */,
 				8BA92D9421C457B40053FA27 /* StyleKit.swift */,
 			);
@@ -140,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				8B3703D121C4318A0049E00E /* ServerHealthManagerProtocol.swift */,
+				8B392B8C21C4656700890616 /* QuestionManagerProtocol.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -150,6 +167,7 @@
 				8B3703D321C431F80049E00E /* HttpResponse.swift */,
 				8BD9EC7321C43AAC00C40D1B /* HttpServiceProtocol.swift */,
 				8BD9EC7521C4418B00C40D1B /* ServerHealthHttpServiceProtocol.swift */,
+				8B392B8E21C466DF00890616 /* QuestionHttpServiceProtocol.swift */,
 			);
 			name = Http;
 			path = HttpService;
@@ -166,7 +184,8 @@
 		8B3703C621C3F0AC0049E00E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8BD9EC8121C4475F00C40D1B /* MainViewController.swift */,
+				8B392B9921C46AB500890616 /* Question */,
+				8B392B9821C46A9900890616 /* Main */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -194,6 +213,40 @@
 			children = (
 			);
 			path = ChoiceTableViewCell;
+			sourceTree = "<group>";
+		};
+		8B392B9021C4670700890616 /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				8B392B9121C4672F00890616 /* QuestionManager.swift */,
+				8B392B9321C467CD00890616 /* QuestionHttpService.swift */,
+			);
+			name = Question;
+			sourceTree = "<group>";
+		};
+		8B392B9521C468AD00890616 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8B392B9621C468C800890616 /* Url.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8B392B9821C46A9900890616 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8BD9EC8121C4475F00C40D1B /* MainViewController.swift */,
+			);
+			name = Main;
+			path = Controllers/Main;
+			sourceTree = "<group>";
+		};
+		8B392B9921C46AB500890616 /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				8B392B9A21C46AE400890616 /* QuestionListViewController.swift */,
+			);
+			name = Question;
 			sourceTree = "<group>";
 		};
 		8B4B5EAD21C32094004C162D = {
@@ -226,6 +279,7 @@
 				8B4B5EC521C32095004C162D /* Info.plist */,
 				8B4B5EC221C32095004C162D /* LaunchScreen.storyboard */,
 				8B4B5EC021C32095004C162D /* Assets.xcassets */,
+				8B392B8A21C4638D00890616 /* Localizable.strings */,
 			);
 			path = BlissIOSTest;
 			sourceTree = "<group>";
@@ -330,6 +384,7 @@
 				8BD9EC8021C4470800C40D1B /* Main.storyboard in Resources */,
 				8B4B5EC421C32095004C162D /* LaunchScreen.storyboard in Resources */,
 				8BD9EC8421C455AA00C40D1B /* Question.storyboard in Resources */,
+				8B392B8B21C4638D00890616 /* Localizable.strings in Resources */,
 				8B4B5EC121C32095004C162D /* Assets.xcassets in Resources */,
 				8BD9EC8921C45A0D00C40D1B /* ListTableViewCell.xib in Resources */,
 			);
@@ -388,6 +443,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B3703CA21C424370049E00E /* Question.swift in Sources */,
+				8B392B9421C467CD00890616 /* QuestionHttpService.swift in Sources */,
+				8B392B9B21C46AE400890616 /* QuestionListViewController.swift in Sources */,
 				8BD9EC8821C45A0D00C40D1B /* ListTableViewCell.swift in Sources */,
 				8B3703D021C4282E0049E00E /* BasicViewController.swift in Sources */,
 				8B3703CE21C425630049E00E /* Choice.swift in Sources */,
@@ -395,11 +452,15 @@
 				8BD9EC7E21C442A500C40D1B /* Config.swift in Sources */,
 				8B3703D421C431F80049E00E /* HttpResponse.swift in Sources */,
 				8BD9EC7621C4418B00C40D1B /* ServerHealthHttpServiceProtocol.swift in Sources */,
+				8B392B9221C4672F00890616 /* QuestionManager.swift in Sources */,
 				8BD9EC7421C43AAC00C40D1B /* HttpServiceProtocol.swift in Sources */,
 				8BD9EC8221C4475F00C40D1B /* MainViewController.swift in Sources */,
 				8BD9EC7221C43A7A00C40D1B /* AlamofireHttpService.swift in Sources */,
+				8B392B8F21C466DF00890616 /* QuestionHttpServiceProtocol.swift in Sources */,
 				8B3703CC21C4245D0049E00E /* EntityProtocol.swift in Sources */,
 				8BD9EC7B21C4420800C40D1B /* ServerHealthManager.swift in Sources */,
+				8B392B8D21C4656700890616 /* QuestionManagerProtocol.swift in Sources */,
+				8B392B9721C468C800890616 /* Url.swift in Sources */,
 				8B4B5EBA21C32095004C162D /* AppDelegate.swift in Sources */,
 				8BD9EC7921C441F900C40D1B /* ServerHealthHttpService.swift in Sources */,
 				8B3703D221C4318A0049E00E /* ServerHealthManagerProtocol.swift in Sources */,

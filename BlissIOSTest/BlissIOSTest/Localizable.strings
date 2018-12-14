@@ -1,0 +1,12 @@
+/* 
+  localizable.strings
+  BlissIOSTest
+
+  Created by Jorge Andrade on 14/12/2018.
+  Copyright © 2018 Jorge Andrade. All rights reserved.
+*/
+"question_list" = "Question List";
+"try_again" = "Try Again";
+"server_error" = "Server Error";
+"server_error_description" = "Can't connect to server, please try again";
+"search" = "Search";
