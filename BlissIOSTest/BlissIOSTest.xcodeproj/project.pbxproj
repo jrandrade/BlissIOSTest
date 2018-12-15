@@ -26,6 +26,10 @@
 		8B4B5EC421C32095004C162D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4B5EC221C32095004C162D /* LaunchScreen.storyboard */; };
 		8B885A6D21C4824600323F19 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B885A6C21C4824600323F19 /* ShareViewController.swift */; };
 		8B885A6F21C48A9B00323F19 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B885A6E21C48A9B00323F19 /* String.swift */; };
+		8B885A7221C49A6900323F19 /* ChoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B885A7021C49A6900323F19 /* ChoiceTableViewCell.swift */; };
+		8B885A7321C49A6900323F19 /* ChoiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B885A7121C49A6900323F19 /* ChoiceTableViewCell.xib */; };
+		8B885A7521C49CDD00323F19 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B885A7421C49CDD00323F19 /* DetailViewController.swift */; };
+		8B885A7721C49E0B00323F19 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B885A7621C49E0B00323F19 /* UIImageView.swift */; };
 		8BA92D9521C457B40053FA27 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA92D9421C457B40053FA27 /* StyleKit.swift */; };
 		8BD9EC7221C43A7A00C40D1B /* AlamofireHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9EC7121C43A7A00C40D1B /* AlamofireHttpService.swift */; };
 		8BD9EC7421C43AAC00C40D1B /* HttpServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9EC7321C43AAC00C40D1B /* HttpServiceProtocol.swift */; };
@@ -63,6 +67,10 @@
 		8B4B5EC521C32095004C162D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B885A6C21C4824600323F19 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = Controllers/Question/ShareViewController.swift; sourceTree = "<group>"; };
 		8B885A6E21C48A9B00323F19 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		8B885A7021C49A6900323F19 /* ChoiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceTableViewCell.swift; sourceTree = "<group>"; };
+		8B885A7121C49A6900323F19 /* ChoiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChoiceTableViewCell.xib; sourceTree = "<group>"; };
+		8B885A7421C49CDD00323F19 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Controllers/Question/DetailViewController.swift; sourceTree = "<group>"; };
+		8B885A7621C49E0B00323F19 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		8BA92D9421C457B40053FA27 /* StyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		8BD9EC7121C43A7A00C40D1B /* AlamofireHttpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireHttpService.swift; sourceTree = "<group>"; };
 		8BD9EC7321C43AAC00C40D1B /* HttpServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServiceProtocol.swift; sourceTree = "<group>"; };
@@ -215,6 +223,8 @@
 		8B392B8921C4610500890616 /* ChoiceTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				8B885A7021C49A6900323F19 /* ChoiceTableViewCell.swift */,
+				8B885A7121C49A6900323F19 /* ChoiceTableViewCell.xib */,
 			);
 			path = ChoiceTableViewCell;
 			sourceTree = "<group>";
@@ -233,6 +243,7 @@
 			children = (
 				8B392B9621C468C800890616 /* Url.swift */,
 				8B885A6E21C48A9B00323F19 /* String.swift */,
+				8B885A7621C49E0B00323F19 /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -251,6 +262,7 @@
 			children = (
 				8B392B9A21C46AE400890616 /* QuestionListViewController.swift */,
 				8B885A6C21C4824600323F19 /* ShareViewController.swift */,
+				8B885A7421C49CDD00323F19 /* DetailViewController.swift */,
 			);
 			name = Question;
 			sourceTree = "<group>";
@@ -393,6 +405,7 @@
 				8B392B8B21C4638D00890616 /* Localizable.strings in Resources */,
 				8B4B5EC121C32095004C162D /* Assets.xcassets in Resources */,
 				8BD9EC8921C45A0D00C40D1B /* ListTableViewCell.xib in Resources */,
+				8B885A7321C49A6900323F19 /* ChoiceTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B3703CA21C424370049E00E /* Question.swift in Sources */,
+				8B885A7721C49E0B00323F19 /* UIImageView.swift in Sources */,
 				8B392B9421C467CD00890616 /* QuestionHttpService.swift in Sources */,
 				8B392B9B21C46AE400890616 /* QuestionListViewController.swift in Sources */,
 				8BD9EC8821C45A0D00C40D1B /* ListTableViewCell.swift in Sources */,
@@ -461,6 +475,7 @@
 				8BD9EC7621C4418B00C40D1B /* ServerHealthHttpServiceProtocol.swift in Sources */,
 				8B392B9221C4672F00890616 /* QuestionManager.swift in Sources */,
 				8BD9EC7421C43AAC00C40D1B /* HttpServiceProtocol.swift in Sources */,
+				8B885A7521C49CDD00323F19 /* DetailViewController.swift in Sources */,
 				8B885A6D21C4824600323F19 /* ShareViewController.swift in Sources */,
 				8BD9EC8221C4475F00C40D1B /* MainViewController.swift in Sources */,
 				8BD9EC7221C43A7A00C40D1B /* AlamofireHttpService.swift in Sources */,
@@ -472,6 +487,7 @@
 				8B4B5EBA21C32095004C162D /* AppDelegate.swift in Sources */,
 				8BD9EC7921C441F900C40D1B /* ServerHealthHttpService.swift in Sources */,
 				8B3703D221C4318A0049E00E /* ServerHealthManagerProtocol.swift in Sources */,
+				8B885A7221C49A6900323F19 /* ChoiceTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

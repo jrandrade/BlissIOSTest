@@ -40,6 +40,7 @@ class Question: NSObject, EntityProtocol {
         }
         
         if let choices = json["choices"].array{
+            self.choices = []
             for element in choices {
                 if let choice = Choice(json: element) {
                     self.choices?.append(choice)
@@ -61,10 +62,12 @@ class Question: NSObject, EntityProtocol {
                 if let key = child.label {
                     dict[key] = choiceArray as AnyObject
                 }
+            } else {
+                if let key = child.label {
+                    dict[key] = child.value as AnyObject
+                }
             }
-            if let key = child.label {
-                dict[key] = child.value as AnyObject
-            }
+            
         }
         return dict
     }

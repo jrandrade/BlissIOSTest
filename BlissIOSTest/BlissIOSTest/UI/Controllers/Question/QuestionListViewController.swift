@@ -72,7 +72,10 @@ class QuestionListViewController: BasicViewController {
     }
     
     func loadMore() {
-        isLoading = true
+        guard !isLoading else {
+            return
+        }
+         isLoading = true
         showLoader()
         
         questionManager.getQuestionList(limit: Config.request.limit, offset: list.count, filter: nil) { [weak self] (questions, error) in
@@ -206,6 +209,14 @@ extension QuestionListViewController: UITableViewDelegate, UITableViewDataSource
         
         cell.lblTitle.text = list[indexPath.row].question
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = DetailViewController.instantiate(fromStoryboardName: Config.storyboard.question) as? DetailViewController {
+            vc.question = list[indexPath.row]
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

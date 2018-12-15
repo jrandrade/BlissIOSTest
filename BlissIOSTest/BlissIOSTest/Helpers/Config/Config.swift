@@ -17,6 +17,7 @@ struct Config {
         static let serverHealth = "/health"
         static let questionList = "/questions"
         static let share = "/share"
+        static let update = "/questions/%d"
     }
     
     struct storyboard {

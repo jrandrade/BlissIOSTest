@@ -91,6 +91,24 @@ class QuestionHttpService: NSObject, QuestionHttpServiceProtocol {
             
             result(true, nil)
         }
+    }
+    
+    func updateQuestion(_ question: Question, result: @escaping (Question?, Error?) -> Void) {
+        let url = Config.api.url + String(format:Config.endpoint.update, question.id ?? 0)
+        
+        service.request(url: url, method: .PUT, params: question.toDict(), headers: nil) { (response) in
+            guard response.error == nil else {
+                result(nil, response.error as? Error)
+                return
+            }
+            
+            guard let resultValue = response.value as? JSON, let question = Question(json: resultValue) else {
+                result(nil, nil)
+                return
+            }
+            
+            result(question, nil)
+        }
 
     }
 }

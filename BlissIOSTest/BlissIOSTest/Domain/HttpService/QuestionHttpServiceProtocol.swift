@@ -11,4 +11,5 @@ import Foundation
 protocol QuestionHttpServiceProtocol {
     func getQuestionList(limit: Int, offset: Int, filter: String?, result: @escaping([Question]?, Error?) -> Void)
     func share(isDetail:Bool, id: Int?, filter: String?, destinationEmail: String, result: @escaping(Bool?, Error?) -> Void)
+    func updateQuestion(_ question: Question, result: @escaping(Question?, Error?) -> Void)
 }

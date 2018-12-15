@@ -138,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="96.799999999999997" y="877.51124437781118"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="6ht-UP-EpB">
             <objects>
-                <viewController id="9e4-4y-pZJ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9e4-4y-pZJ" customClass="DetailViewController" customModule="BlissIOSTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Su-jb-5j1"/>
                         <viewControllerLayoutGuide type="bottom" id="sdX-vs-q4N"/>
@@ -150,41 +150,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PnU-TQ-H5X">
-                                <rect key="frame" x="32" y="28" width="311" height="166"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bliss-applications" translatesAutoresizingMaskIntoConstraints="NO" id="PnU-TQ-H5X">
+                                <rect key="frame" x="32" y="69" width="311" height="166"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="PnU-TQ-H5X" secondAttribute="height" multiplier="15:8" id="oKe-Hy-599"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="awdwdawdawdawda w aw dad wdad wd adw awd ad aw dadawd ad awd ad awdawdawdawdawda" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTK-gD-YS3">
-                                <rect key="frame" x="32" y="210" width="311" height="21"/>
+                                <rect key="frame" x="32" y="251" width="311" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vja-sF-Li2">
-                                <rect key="frame" x="16" y="255" width="359" height="412"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCe-5m-Wj2">
+                                <rect key="frame" x="32" y="36" width="35.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vja-sF-Li2">
+                                <rect key="frame" x="0.0" y="296" width="375" height="371"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9e4-4y-pZJ" id="P0r-nF-XUN"/>
+                                    <outlet property="delegate" destination="9e4-4y-pZJ" id="1E3-jg-WgO"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="jTK-gD-YS3" secondAttribute="trailing" constant="16" id="1FO-if-eqV"/>
                             <constraint firstItem="sdX-vs-q4N" firstAttribute="top" secondItem="vja-sF-Li2" secondAttribute="bottom" id="4Fb-sN-IzT"/>
-                            <constraint firstItem="vja-sF-Li2" firstAttribute="leading" secondItem="RNz-12-HnR" secondAttribute="leadingMargin" id="DkF-gS-a8u"/>
+                            <constraint firstItem="vja-sF-Li2" firstAttribute="leading" secondItem="RNz-12-HnR" secondAttribute="leading" id="DkF-gS-a8u"/>
                             <constraint firstItem="vja-sF-Li2" firstAttribute="top" secondItem="jTK-gD-YS3" secondAttribute="bottom" constant="24" id="Fxc-lr-vKx"/>
-                            <constraint firstItem="PnU-TQ-H5X" firstAttribute="top" secondItem="1Su-jb-5j1" secondAttribute="bottom" constant="8" id="OqD-VR-n5Z"/>
+                            <constraint firstItem="LCe-5m-Wj2" firstAttribute="leading" secondItem="PnU-TQ-H5X" secondAttribute="leading" id="P8G-79-8qa"/>
                             <constraint firstItem="jTK-gD-YS3" firstAttribute="leading" secondItem="RNz-12-HnR" secondAttribute="leadingMargin" constant="16" id="Vqf-uK-6Et"/>
                             <constraint firstItem="jTK-gD-YS3" firstAttribute="top" secondItem="PnU-TQ-H5X" secondAttribute="bottom" constant="16" id="X0n-PP-Dio"/>
                             <constraint firstAttribute="trailing" secondItem="vja-sF-Li2" secondAttribute="trailing" id="bC7-mq-aCO"/>
+                            <constraint firstItem="PnU-TQ-H5X" firstAttribute="top" secondItem="LCe-5m-Wj2" secondAttribute="bottom" constant="16" id="kTv-jn-tgq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PnU-TQ-H5X" secondAttribute="trailing" constant="16" id="rJo-B4-n2O"/>
                             <constraint firstItem="PnU-TQ-H5X" firstAttribute="leading" secondItem="RNz-12-HnR" secondAttribute="leadingMargin" constant="16" id="sd8-b7-3V5"/>
+                            <constraint firstItem="LCe-5m-Wj2" firstAttribute="top" secondItem="1Su-jb-5j1" secondAttribute="bottom" constant="16" id="xgE-Qo-qR3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imgQuestion" destination="PnU-TQ-H5X" id="R2S-J9-Md3"/>
+                        <outlet property="lblPublishedAt" destination="LCe-5m-Wj2" id="kdC-2W-0cP"/>
+                        <outlet property="lblQuestion" destination="jTK-gD-YS3" id="SBt-Uy-N1P"/>
+                        <outlet property="tableView" destination="vja-sF-Li2" id="6ck-l8-av0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KYp-Gd-u5S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1090" y="65"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bliss-applications" width="988" height="589"/>
+    </resources>
 </document>
