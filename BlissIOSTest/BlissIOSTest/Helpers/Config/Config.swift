@@ -12,9 +12,13 @@ struct Config {
     struct api {
         static let url = "https://private-anon-6f1b9681ee-blissrecruitmentapi.apiary-mock.com"
     }
+    
     struct notifications {
         static let network = Notification.Name(rawValue: "blissiostest.notification.network")
+        static let showQuestion = Notification.Name(rawValue: "blissiostest.notification.showQuestion")
+        static let showList = Notification.Name(rawValue: "blissiostest.notification.showList")
     }
+    
     struct endpoint {
         static let serverHealth = "/health"
         static let questionList = "/questions"

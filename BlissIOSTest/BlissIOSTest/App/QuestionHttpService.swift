@@ -111,4 +111,23 @@ class QuestionHttpService: NSObject, QuestionHttpServiceProtocol {
         }
 
     }
+    
+    func getQuestion(id: Int, result: @escaping (Question?, Error?) -> Void) {
+        let url = Config.api.url + String(format:Config.endpoint.update, id)
+        
+        service.request(url: url, method: .GET, params: nil, headers: nil) { (response) in
+            guard response.error == nil else {
+                result(nil, response.error as? Error)
+                return
+            }
+            
+            guard let resultValue = response.value as? JSON, let question = Question(json: resultValue) else {
+                result(nil, nil)
+                return
+            }
+            
+            result(question, nil)
+        }
+
+    }
 }

@@ -47,7 +47,11 @@ class QuestionListViewController: BasicViewController {
     
     override func setupObservers() {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showList(notification:)), name: Config.notifications.showList, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showQuestion(notification:)), name: Config.notifications.showQuestion, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
@@ -107,6 +111,50 @@ class QuestionListViewController: BasicViewController {
             
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    func showList(notification: NSNotification) {
+        if let filter = notification.userInfo?["data"] as? String {
+            isLoading = true
+            showLoader()
+            
+            questionManager.getQuestionList(limit: Config.request.limit, offset: 0, filter: filter) { [weak self] (questions, error) in
+                guard let strongSelf = self else {return}
+                strongSelf.hideLoader()
+                strongSelf.isLoading = false
+                strongSelf.pullToRefresh = false
+                
+                guard error == nil else {
+                    return
+                }
+                strongSelf.searchBar.text = filter
+                strongSelf.searchBar.becomeFirstResponder()
+                strongSelf.list = questions ?? []
+                strongSelf.tableView.reloadData()
+            }
+
+        }
+        
+    }
+    
+    func showQuestion(notification: NSNotification) {
+        if let id = notification.userInfo?["data"] as? Int {
+            showLoader()
+            questionManager.getQuestion(id: id, result: {[weak self] (question, error) in
+                guard let strongSelf = self else {return}
+                strongSelf.hideLoader()
+                guard error == nil else {
+                    return
+                }
+                
+                if let vc = DetailViewController.instantiate(fromStoryboardName: Config.storyboard.question) as? DetailViewController {
+                    vc.question = question
+                    
+                    strongSelf.navigationController?.pushViewController(vc, animated: true)
+                }
+            })
+        }
+        
     }
     
     class func instanciateOnWindow() {

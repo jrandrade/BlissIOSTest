@@ -28,4 +28,9 @@ class QuestionManager: NSObject, QuestionManagerProtocol {
             result(questionUpdated, error)
         }
     }
+    func getQuestion(id: Int, result: @escaping (Question?, Error?) -> Void) {
+        service.getQuestion(id: id) { (question, error) in
+            result(question, error)
+        }
+    }
 }

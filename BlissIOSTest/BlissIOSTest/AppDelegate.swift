@@ -42,6 +42,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        print("url \(url)")
+        print("url host :\(url.host!)")
+        print("url path :\(url.path)")
+        
+        
+        let urlPath : String = url.path as String!
+        let urlHost : String = url.host as String!
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if(urlHost != "questions")
+        {
+            print("Host is not correct")
+            return false
+        }
+        
+        let components = url.absoluteString.components(separatedBy: "=")
+        
+        if let lastComponent = components.last, let id = Int(lastComponent) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4, execute: {
+            NotificationCenter.default.post(name: Config.notifications.showQuestion, object: nil, userInfo: ["data": id])
+                })
+        } else if let lastComponent = components.last{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4, execute: {
+             NotificationCenter.default.post(name: Config.notifications.showList, object: nil, userInfo: ["data": lastComponent])
+            })
+        }
+        return false
+    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return false
+    }
+    
+    //Mark: - Global App Appearance
     func setupGlobalAppAppearance() {
         
         UINavigationBar.appearance().setBackgroundImage(nil, for: .default)
