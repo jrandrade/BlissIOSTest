@@ -16,4 +16,10 @@ class QuestionManager: NSObject, QuestionManagerProtocol {
             result(list, error)
         }
     }
+    
+    func share(isDetail: Bool, id: Int?, filter: String?, destinationEmail: String, result: @escaping (Bool?, Error?) -> Void) {
+        service.share(isDetail: isDetail, id: id, filter: filter, destinationEmail: destinationEmail) { (success, error) in
+            result(success, error)
+        }
+    }
 }

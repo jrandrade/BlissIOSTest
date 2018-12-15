@@ -10,3 +10,10 @@
 "server_error" = "Server Error";
 "server_error_description" = "Can't connect to server, please try again";
 "search" = "Search";
+"share" = "Share";
+"email_invalid" = "Please enter a valid email address";
+"error" = "Error";
+"success" = "Success";
+"share_success" = "Content shared with success!";
+"ok" = "OK";
+"error_description" = "An error occurred, please try again";

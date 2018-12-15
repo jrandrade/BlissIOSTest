@@ -31,7 +31,7 @@ class QuestionHttpService: NSObject, QuestionHttpServiceProtocol {
                                                         
                                                         return
         }
-
+        
         service.request(url: finalUrl, method: .GET, params: nil, headers: nil) { (response) in
             guard response.error == nil else {
                 result(nil, response.error as? Error)
@@ -50,10 +50,48 @@ class QuestionHttpService: NSObject, QuestionHttpServiceProtocol {
                         list.append(question)
                     }
                 }
-
+                
             }
-                        result(list, nil)
+            result(list, nil)
+        }
+        
+    }
+    
+    func share(isDetail: Bool, id: Int?, filter: String?, destinationEmail: String, result: @escaping (Bool?, Error?) -> Void) {
+        
+        let url = Config.api.url + Config.endpoint.share
+        var contentUrl = Config.share.url
+        contentUrl += isDetail ? String(format: Config.share.detail, id ?? 0) : String(format: Config.share.list, filter ?? "")
+        
+        guard let finalUrl = URL.getWithQueryString(baseUrl: url, queryParams:
+            ["destination_email": destinationEmail as AnyObject],
+                                                    ["content_url": contentUrl as AnyObject]) else {
+                                                        
+                                                        let error = NSError(
+                                                            domain: Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String,
+                                                            code: 404,
+                                                            userInfo: [
+                                                                NSLocalizedDescriptionKey: "ERROR_MISSING_PARAMETERS"
+                                                            ])
+                                                        
+                                                        result(nil, error)
+                                                        
+                                                        return
+        }
+        
+        service.request(url: finalUrl, method: .GET, params: nil, headers: nil) { (response) in
+            guard response.error == nil else {
+                result(nil, response.error as? Error)
+                return
+            }
+            
+            guard let resultValue = response.value as? JSON, let health = resultValue["status"].string, health == "OK" else {
+                result(false, nil)
+                return
+            }
+            
+            result(true, nil)
         }
 
-            }
+    }
 }

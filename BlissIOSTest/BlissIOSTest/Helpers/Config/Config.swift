@@ -16,6 +16,7 @@ struct Config {
     struct endpoint {
         static let serverHealth = "/health"
         static let questionList = "/questions"
+        static let share = "/share"
     }
     
     struct storyboard {
@@ -25,5 +26,11 @@ struct Config {
     
     struct request {
         static let limit = 10
+    }
+    
+    struct share {
+        static let url = "blissrecruitment://questions"
+        static let list = "?question_filter=%@"
+        static let detail = "?question_id=%d"
     }
 }

@@ -44,6 +44,12 @@ class QuestionListViewController: BasicViewController {
         tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "ListTableViewCell")
     }
     
+    override func setupObservers() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
     override func setupData() {
         isLoading = true
         showLoader()
@@ -91,6 +97,9 @@ class QuestionListViewController: BasicViewController {
         setupData()
     }
     
+    @objc func share() {
+    }
+    
     class func instanciateOnWindow() {
         
         let appDelegate = UIApplication.shared.delegate
@@ -110,6 +119,12 @@ class QuestionListViewController: BasicViewController {
 //MARK: - UISearchBarDelegate
 extension QuestionListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if !searchText.isEmpty {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: .plain, target: self, action: #selector(share))
+        } else {
+            navigationItem.rightBarButtonItem = nil
+        }
         isLoading = true
         showLoader()
         
@@ -132,11 +147,43 @@ extension QuestionListViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         self.view.endEditing(true)
         searchBar.showsCancelButton = false
+        navigationItem.rightBarButtonItem = nil 
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
+        
     }
+    
+    @objc func keyboardWillShow(notification:NSNotification) {
+        
+        let userInfo:NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+        
+        bottomConstraint.constant = keyboardHeight + 10
+        
+        let animationDuration = userInfo.value(forKey: UIKeyboardAnimationDurationUserInfoKey) as! Double
+        let animationCurve = userInfo.value(forKey: UIKeyboardAnimationCurveUserInfoKey) as! Double
+        
+        UIView.animate(withDuration: TimeInterval(exactly: animationDuration)!, delay: 0, options: UIViewAnimationOptions(rawValue: UInt(exactly: animationCurve)!), animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    @objc func keyboardWillHide(notification:NSNotification) {
+        
+        let userInfo:NSDictionary = notification.userInfo! as NSDictionary
+        let animationDuration = userInfo.value(forKey: UIKeyboardAnimationDurationUserInfoKey) as! Double
+        let animationCurve = userInfo.value(forKey: UIKeyboardAnimationCurveUserInfoKey) as! Double
+        
+        bottomConstraint.constant = 0
+        
+        UIView.animate(withDuration: TimeInterval(exactly: animationDuration)!, delay: 0, options: UIViewAnimationOptions(rawValue: UInt(exactly: animationCurve)!), animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+
 }
 
 //MARK: - UITableViewDelegate & UITableViewDataSource
@@ -151,8 +198,6 @@ extension QuestionListViewController: UITableViewDelegate, UITableViewDataSource
         }
         
         cell.lblTitle.text = list[indexPath.row].question
-        cell.tag = indexPath.row
-        cell.delegate = self
         return cell
     }
     
@@ -164,9 +209,3 @@ extension QuestionListViewController: UITableViewDelegate, UITableViewDataSource
     }
 }
 
-//MARK: - UISearchBarDelegate
-extension QuestionListViewController: ListTableViewCellProtocol {
-    func share(index: Int) {
-        
-    }
-}
