@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17G3025" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="17G3025" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,20 +19,46 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xo1-fD-mn0">
-                        <rect key="frame" x="8" y="8" width="304" height="28"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="8" y="8" width="35.5" height="28"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="8zL-F3-UvE">
+                        <rect key="frame" x="292" y="1" width="20" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="bbC-mH-0Ww"/>
+                            <constraint firstAttribute="height" constant="40" id="grH-Vf-MKV"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8T-Yi-dHZ">
+                        <rect key="frame" x="280" y="0.0" width="40" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="ukq-S6-w2h"/>
+                        </constraints>
+                        <connections>
+                            <action selector="share:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ssT-PZ-c9J"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="xo1-fD-mn0" secondAttribute="bottom" constant="8" id="1bZ-2U-jFO"/>
-                    <constraint firstAttribute="trailing" secondItem="xo1-fD-mn0" secondAttribute="trailing" constant="8" id="AOj-7I-TvP"/>
                     <constraint firstItem="xo1-fD-mn0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="AQY-fY-IBq"/>
+                    <constraint firstItem="8zL-F3-UvE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="F5z-5C-7lJ"/>
+                    <constraint firstAttribute="bottom" secondItem="b8T-Yi-dHZ" secondAttribute="bottom" id="Qfo-8S-z6g"/>
+                    <constraint firstAttribute="trailing" secondItem="8zL-F3-UvE" secondAttribute="trailing" constant="8" id="Xox-sx-Hba"/>
+                    <constraint firstItem="b8T-Yi-dHZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ask-5Z-9uz"/>
                     <constraint firstItem="xo1-fD-mn0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="e2q-3g-3J6"/>
+                    <constraint firstAttribute="trailing" secondItem="b8T-Yi-dHZ" secondAttribute="trailing" id="tcf-1I-ZF8"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="lblTitle" destination="xo1-fD-mn0" id="6PR-GJ-bDm"/>
+            </connections>
             <point key="canvasLocation" x="34" y="54"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="share" width="48" height="48"/>
+    </resources>
 </document>

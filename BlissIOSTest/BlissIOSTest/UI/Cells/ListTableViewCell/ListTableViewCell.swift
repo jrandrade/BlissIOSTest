@@ -7,14 +7,24 @@
 //
 
 import UIKit
+protocol ListTableViewCellProtocol: class {
+    func share(index: Int)
+}
 
 class ListTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var lblTitle: UILabel!
+    weak var delegate: ListTableViewCellProtocol? = nil
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        selectionStyle = .none
     }
 
+    
+
+    @IBAction func share(_ sender: Any) {
+        delegate?.share(index: tag)
+    }
     
     
 }

@@ -25,9 +25,12 @@ class MainViewController: BasicViewController {
             strongSelf.hideLoader()
             
             guard health == true else {
+                strongSelf.createAlert()
                 return
             }
-            strongSelf.createAlert()
+            
+            QuestionListViewController.instanciateOnWindow()
+            
         }
     }
     

@@ -14,7 +14,7 @@ class QuestionHttpService: NSObject, QuestionHttpServiceProtocol {
     let service = AlamofireHttpService.sharedInstance
     
     func getQuestionList(limit: Int, offset: Int, filter: String?, result: @escaping ([Question]?, Error?) -> Void) {
-        let url = Config.api.url + Config.endpoint.serverHealth
+        let url = Config.api.url + Config.endpoint.questionList
         guard let finalUrl = URL.getWithQueryString(baseUrl: url, queryParams:
             ["limit": limit as AnyObject],
                                                     ["offset": offset as AnyObject],
@@ -38,18 +38,21 @@ class QuestionHttpService: NSObject, QuestionHttpServiceProtocol {
                 return
             }
             
-            guard let resultValue = response.value as? [JSON] else {
+            guard let resultValue = response.value as? JSON else {
                 result(nil, nil)
                 return
             }
             
             var list = [Question]()
-            for element in resultValue {
-                if let question = Question(json: element) {
-                    list.append(question)
+            if let array = resultValue.array {
+                for element in array {
+                    if let question = Question(json: element) {
+                        list.append(question)
+                    }
                 }
+
             }
-            result(list, nil)
+                        result(list, nil)
         }
 
             }
