@@ -8,10 +8,11 @@
 
 import UIKit
 import MBProgressHUD
+import Alamofire
 
 class BasicViewController: UIViewController {
     var loadNotification : MBProgressHUD?
-    
+    var noConnectionViewController: NoConnectionViewController! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,6 +20,7 @@ class BasicViewController: UIViewController {
         loadNibs()
         setupObservers()
         setupData()
+         NotificationCenter.default.addObserver(self, selector: #selector(self.networkStatusDidChange), name: Config.notifications.network, object: nil)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,6 +62,43 @@ class BasicViewController: UIViewController {
         loadNotification?.hide(animated: true)
     }
 
+    
+    func setNoConnectionPage(isDetail: Bool = false) {
+        if noConnectionViewController != nil {
+            noConnectionViewController?.view.removeFromSuperview()
+        }
+        noConnectionViewController = NoConnectionViewController.instantiate(fromStoryboardName: Config.storyboard.main) as! NoConnectionViewController
+        
+        noConnectionViewController.view.frame = view.bounds
+        
+        self.addChildViewController(noConnectionViewController!)
+        view.addSubview(noConnectionViewController!.view)
+        noConnectionViewController?.didMove(toParentViewController: self)
+        view.bringSubview(toFront: noConnectionViewController.view)
+    }
+    
+    @objc func networkStatusDidChange() {
+        if !NetworkReachabilityManager()!.isReachable {
+            setNoConnectionPage()
+            return
+        }else {
+            if noConnectionViewController != nil {
+                
+                UIView.transition(with: view, duration: 0.4, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                    
+                    self.noConnectionViewController?.view.alpha = 0
+                    
+                }, completion: { (b) in
+                    
+                    self.noConnectionViewController?.view.removeFromSuperview()
+                    
+                })
+            }
+        }
+        setupData()
+    }
+
+    
     static func instantiate(fromStoryboardName: String) -> UIViewController {
         
         let storyboard = UIStoryboard.init(name: fromStoryboardName, bundle: nil)

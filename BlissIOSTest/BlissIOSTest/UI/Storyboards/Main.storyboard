@@ -42,8 +42,52 @@
             </objects>
             <point key="canvasLocation" x="148" y="125"/>
         </scene>
+        <!--No Connection View Controller-->
+        <scene sceneID="44A-Lv-9Zt">
+            <objects>
+                <viewController storyboardIdentifier="NoConnectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nxP-Mk-Xse" customClass="NoConnectionViewController" customModule="BlissIOSTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NKJ-nA-gYM"/>
+                        <viewControllerLayoutGuide type="bottom" id="OEU-X1-d0I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mnE-MG-DyC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-connection" translatesAutoresizingMaskIntoConstraints="NO" id="voP-wq-SNK">
+                                <rect key="frame" x="137" y="135" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="9xV-nZ-ywU"/>
+                                    <constraint firstAttribute="height" constant="100" id="nQA-26-CL8"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pt0-c9-lS8">
+                                <rect key="frame" x="16" y="267" width="343" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="voP-wq-SNK" firstAttribute="centerX" secondItem="mnE-MG-DyC" secondAttribute="centerX" id="4yJ-oU-MpM"/>
+                            <constraint firstAttribute="trailing" secondItem="Pt0-c9-lS8" secondAttribute="trailing" constant="16" id="9jB-Nt-wwb"/>
+                            <constraint firstItem="voP-wq-SNK" firstAttribute="top" secondItem="NKJ-nA-gYM" secondAttribute="bottom" constant="115" id="MqB-wN-Z2J"/>
+                            <constraint firstItem="Pt0-c9-lS8" firstAttribute="leading" secondItem="mnE-MG-DyC" secondAttribute="leading" constant="16" id="geO-hQ-e8B"/>
+                            <constraint firstItem="Pt0-c9-lS8" firstAttribute="top" secondItem="voP-wq-SNK" secondAttribute="bottom" constant="32" id="wS3-nd-Y66"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lblTitle" destination="Pt0-c9-lS8" id="y9Q-iZ-WHu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z2I-6q-wmM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1133.5999999999999" y="129.98500749625188"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bliss-applications" width="988" height="589"/>
+        <image name="no-connection" width="100" height="100"/>
     </resources>
 </document>

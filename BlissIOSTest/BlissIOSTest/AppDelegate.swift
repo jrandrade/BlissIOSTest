@@ -7,16 +7,17 @@
 //
 
 import UIKit
-
+import ReachabilitySwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    let reachability = Reachability()!
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         setupGlobalAppAppearance()
+        startReachability()
         return true
     }
 
@@ -54,6 +55,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         UIApplication.shared.statusBarStyle = .lightContent
     }
-
+    
+    //MARK: - ReachabilitySwift
+    func startReachability() {
+        
+        reachability.whenReachable = { reachability in
+            NotificationCenter.default.post(name: Config.notifications.network, object: nil)
+        }
+        
+        reachability.whenUnreachable = { reachability in
+            NotificationCenter.default.post(name: Config.notifications.network, object: nil)
+        }
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            
+        }
+    }
 }
 

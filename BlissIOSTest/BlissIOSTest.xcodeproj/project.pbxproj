@@ -30,6 +30,7 @@
 		8B885A7321C49A6900323F19 /* ChoiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B885A7121C49A6900323F19 /* ChoiceTableViewCell.xib */; };
 		8B885A7521C49CDD00323F19 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B885A7421C49CDD00323F19 /* DetailViewController.swift */; };
 		8B885A7721C49E0B00323F19 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B885A7621C49E0B00323F19 /* UIImageView.swift */; };
+		8B885A7921C4B45400323F19 /* NoConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B885A7821C4B45400323F19 /* NoConnectionViewController.swift */; };
 		8BA92D9521C457B40053FA27 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA92D9421C457B40053FA27 /* StyleKit.swift */; };
 		8BD9EC7221C43A7A00C40D1B /* AlamofireHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9EC7121C43A7A00C40D1B /* AlamofireHttpService.swift */; };
 		8BD9EC7421C43AAC00C40D1B /* HttpServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9EC7321C43AAC00C40D1B /* HttpServiceProtocol.swift */; };
@@ -71,6 +72,7 @@
 		8B885A7121C49A6900323F19 /* ChoiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChoiceTableViewCell.xib; sourceTree = "<group>"; };
 		8B885A7421C49CDD00323F19 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Controllers/Question/DetailViewController.swift; sourceTree = "<group>"; };
 		8B885A7621C49E0B00323F19 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		8B885A7821C4B45400323F19 /* NoConnectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoConnectionViewController.swift; sourceTree = "<group>"; };
 		8BA92D9421C457B40053FA27 /* StyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		8BD9EC7121C43A7A00C40D1B /* AlamofireHttpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireHttpService.swift; sourceTree = "<group>"; };
 		8BD9EC7321C43AAC00C40D1B /* HttpServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServiceProtocol.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				8BD9EC8121C4475F00C40D1B /* MainViewController.swift */,
+				8B885A7821C4B45400323F19 /* NoConnectionViewController.swift */,
 			);
 			name = Main;
 			path = Controllers/Main;
@@ -422,6 +425,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -429,6 +433,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +492,7 @@
 				8B4B5EBA21C32095004C162D /* AppDelegate.swift in Sources */,
 				8BD9EC7921C441F900C40D1B /* ServerHealthHttpService.swift in Sources */,
 				8B3703D221C4318A0049E00E /* ServerHealthManagerProtocol.swift in Sources */,
+				8B885A7921C4B45400323F19 /* NoConnectionViewController.swift in Sources */,
 				8B885A7221C49A6900323F19 /* ChoiceTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

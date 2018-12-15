@@ -22,6 +22,8 @@ class DetailViewController: BasicViewController {
     
     override func setupView() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: .plain, target: self, action: #selector(share))
+        
+        title = NSLocalizedString("question", comment: "")
         guard let question = question else {return}
         
         if let url = question.image_url {

@@ -20,5 +20,7 @@
 "email_address" = "Email Address";
 "cancel" = "Cancel";
 "tanks_for_voting" = "Thanks for voting";
+"question" = "Question";
+"no_internet_connection" = "No Internet Connection Found";
 
 
