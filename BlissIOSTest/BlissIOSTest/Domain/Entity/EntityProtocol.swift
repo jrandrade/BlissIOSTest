@@ -16,4 +16,6 @@ protocol EntityProtocol {
      */
     init?(json: JSON);
     
+    func toDict() -> [String: AnyObject?]
+    
 }

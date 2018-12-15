@@ -63,9 +63,8 @@ class QuestionHttpService: NSObject, QuestionHttpServiceProtocol {
         var contentUrl = Config.share.url
         contentUrl += isDetail ? String(format: Config.share.detail, id ?? 0) : String(format: Config.share.list, filter ?? "")
         
-        guard let finalUrl = URL.getWithQueryString(baseUrl: url, queryParams:
-            ["destination_email": destinationEmail as AnyObject],
-                                                    ["content_url": contentUrl as AnyObject]) else {
+        guard var finalUrl = URL.getWithQueryString(baseUrl: url, queryParams:
+            ["destination_email": destinationEmail as AnyObject]) else {
                                                         
                                                         let error = NSError(
                                                             domain: Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String,
@@ -78,8 +77,8 @@ class QuestionHttpService: NSObject, QuestionHttpServiceProtocol {
                                                         
                                                         return
         }
-        
-        service.request(url: finalUrl, method: .GET, params: nil, headers: nil) { (response) in
+        finalUrl += "content_url=\(contentUrl)"
+        service.request(url: finalUrl, method: .POST, params: nil, headers: nil) { (response) in
             guard response.error == nil else {
                 result(nil, response.error as? Error)
                 return

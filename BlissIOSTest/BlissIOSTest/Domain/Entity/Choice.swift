@@ -22,4 +22,19 @@ class Choice: NSObject, EntityProtocol{
             self.votes = votes
         }
     }
+    
+    func toDict() -> [String : AnyObject?] {
+        var dict = [String : AnyObject?]()
+        let otherSelf = Mirror(reflecting: self)
+        for child in otherSelf.children {
+            
+            if let key = child.label {
+                dict[key] = child.value as AnyObject
+            }
+        }
+        return dict
+    }
+    
 }
+
+

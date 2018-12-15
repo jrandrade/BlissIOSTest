@@ -22,6 +22,7 @@ class QuestionListViewController: BasicViewController {
     var pullToRefresh = false
     
     override func setupView() {
+        UIApplication.shared.statusBarStyle = .lightContent
         
         searchBar = UISearchBar()
         searchBar.delegate = self
@@ -98,6 +99,11 @@ class QuestionListViewController: BasicViewController {
     }
     
     @objc func share() {
+        if let vc = ShareViewController.instantiate(fromStoryboardName: Config.storyboard.question) as? ShareViewController {
+            vc.filter = searchBar.text
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     class func instanciateOnWindow() {
@@ -147,6 +153,7 @@ extension QuestionListViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         self.view.endEditing(true)
         searchBar.showsCancelButton = false
+        searchBar.text = ""
         navigationItem.rightBarButtonItem = nil 
     }
     

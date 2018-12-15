@@ -17,3 +17,5 @@
 "share_success" = "Content shared with success!";
 "ok" = "OK";
 "error_description" = "An error occurred, please try again";
+"email_address" = "Email Address";
+"cancel" = "Cancel";

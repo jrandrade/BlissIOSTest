@@ -47,6 +47,26 @@ class Question: NSObject, EntityProtocol {
             }
         }
     }
-
+    func toDict() -> [String : AnyObject?] {
+        var dict = [String : AnyObject?]()
+        let otherSelf = Mirror(reflecting: self)
+        for child in otherSelf.children {
+            
+            if let array = child.value as? [Choice] {
+                var choiceArray = [AnyObject]()
+                for item in array {
+                    choiceArray.append(item.toDict() as AnyObject)
+                }
+                
+                if let key = child.label {
+                    dict[key] = choiceArray as AnyObject
+                }
+            }
+            if let key = child.label {
+                dict[key] = child.value as AnyObject
+            }
+        }
+        return dict
+    }
     
 }

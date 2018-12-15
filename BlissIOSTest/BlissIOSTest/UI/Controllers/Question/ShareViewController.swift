@@ -21,11 +21,16 @@ class ShareViewController: BasicViewController {
     
     override func setupView() {
         title = NSLocalizedString("share", comment: "")
+        navigationItem.titleView?.tintColor = .white
         btnShare.backgroundColor = StyleKit.mainColor
         btnShare.layer.cornerRadius = 10
         btnShare.setTitleColor(.white, for: .normal)
         btnShare.setTitle(NSLocalizedString("share", comment: ""), for: .normal)
         lblError.isHidden = true
+        lblError.text = NSLocalizedString("email_invalid", comment: "")
+        lblError.textColor = .red
+        
+        txtEmailAddress.placeholder = NSLocalizedString("email_address", comment: "")
     }
     
     
@@ -63,11 +68,12 @@ class ShareViewController: BasicViewController {
     }
     
     private func showErrorAlert() {
-        let alert = UIAlertController(title: NSLocalizedString("server_error", comment: ""), message: NSLocalizedString("server_error_description", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("error_description", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("try_again", comment: ""), style: UIAlertActionStyle.default, handler: { [weak self]  action in
             guard let strongSelf = self else {return}
-            strongSelf.setupData()
+            strongSelf.share(0)
         }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: UIAlertActionStyle.destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 
